@@ -1,10 +1,14 @@
 import { Layout, theme } from "antd";
+import useAPI from "../../hooks/useAPI";
 
 const { Header, Content } = Layout;
 const Posts = () => {
   const {
     token: { colorBgContainer, borderRadiusLG },
   } = theme.useToken();
+
+  const { data: posts, isLoading, isError } = useAPI("posts");
+
   return (
     <>
       <Header style={{ padding: 0, background: colorBgContainer }}>
@@ -19,7 +23,17 @@ const Posts = () => {
             borderRadius: borderRadiusLG,
           }}
         >
-          All posts
+          {isLoading ? (
+            <div>Loading...</div>
+          ) : isError ? (
+            <div>Error</div>
+          ) : (
+            <ul>
+              {posts?.map((post) => (
+                <li key={post.id}>{post.title}</li>
+              ))}
+            </ul>
+          )}
         </div>
       </Content>
     </>
