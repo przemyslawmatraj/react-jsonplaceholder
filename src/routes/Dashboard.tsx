@@ -2,7 +2,7 @@ import { Layout, theme } from "antd";
 
 const { Header, Content } = Layout;
 
-const App = () => {
+const Dashboard = () => {
   const {
     token: { colorBgContainer, borderRadiusLG },
   } = theme.useToken();
@@ -28,4 +28,4 @@ const App = () => {
   );
 };
 
-export default App;
+export default Dashboard;
