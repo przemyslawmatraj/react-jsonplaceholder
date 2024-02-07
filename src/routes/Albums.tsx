@@ -1,16 +1,14 @@
 import { Layout, theme } from "antd";
 
 const { Header, Content } = Layout;
-
-const App = () => {
+const Albums = () => {
   const {
     token: { colorBgContainer, borderRadiusLG },
   } = theme.useToken();
-
   return (
     <>
       <Header style={{ padding: 0, background: colorBgContainer }}>
-        asdasd
+        Albums
       </Header>
       <Content style={{ margin: "0 16px" }}>
         <div
@@ -21,11 +19,11 @@ const App = () => {
             borderRadius: borderRadiusLG,
           }}
         >
-          Bill is a cat.
+          All Albums
         </div>
       </Content>
     </>
   );
 };
 
-export default App;
+export default Albums;
