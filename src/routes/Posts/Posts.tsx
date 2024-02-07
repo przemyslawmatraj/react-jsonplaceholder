@@ -1,5 +1,6 @@
 import { Layout, theme } from "antd";
 import useAPI from "../../hooks/useAPI";
+import { Link } from "react-router-dom";
 
 const { Header, Content } = Layout;
 const Posts = () => {
@@ -30,7 +31,9 @@ const Posts = () => {
           ) : (
             <ul>
               {posts?.map((post) => (
-                <li key={post.id}>{post.title}</li>
+                <li key={post.id}>
+                  <Link to={`/posts/${post.id}`}>{post.title}</Link>
+                </li>
               ))}
             </ul>
           )}

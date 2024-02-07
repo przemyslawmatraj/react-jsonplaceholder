@@ -32,12 +32,11 @@ const items: MenuItem[] = [
 ];
 
 export default function useMenuItems() {
-  const location = useLocation();
+  const { pathname } = useLocation();
 
   const getSelectedKey = () => {
-    const path = location.pathname;
     const selectedKey = items.find((item) =>
-      path.includes(item?.key as string)
+      pathname.includes(item?.key as string)
     )?.key;
     return selectedKey ? ([selectedKey] as string[]) : ["dashboard"];
   };

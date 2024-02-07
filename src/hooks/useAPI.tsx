@@ -15,6 +15,22 @@ type Posts = {
   body: string;
 }[];
 
+type Comments = {
+  postId: number;
+  id: number;
+  name: string;
+  email: string;
+  body: string;
+}[];
+
+type Photos = {
+  albumId: number;
+  id: number;
+  title: string;
+  url: string;
+  thumbnailUrl: string;
+}[];
+
 type Users = {
   id: number;
   name: string;
@@ -43,6 +59,8 @@ type SlugTypeMapping = {
   albums: Albums;
   posts: Posts;
   users: Users;
+  comments: Comments;
+  photos: Photos;
 };
 
 const useAPI = <T extends keyof SlugTypeMapping>(

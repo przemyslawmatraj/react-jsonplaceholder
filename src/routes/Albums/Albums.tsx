@@ -1,5 +1,6 @@
 import { Layout, theme } from "antd";
 import useAPI from "../../hooks/useAPI";
+import { Link } from "react-router-dom";
 
 const { Header, Content } = Layout;
 const Albums = () => {
@@ -30,7 +31,11 @@ const Albums = () => {
           ) : (
             <ul>
               {albums?.map((album) => (
-                <li key={album.id}>{album.title}</li>
+                <li>
+                  <Link to={`/albums/${album.id}`} key={album.id}>
+                    {album.title}
+                  </Link>
+                </li>
               ))}
             </ul>
           )}

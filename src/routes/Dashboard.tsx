@@ -1,4 +1,5 @@
 import { Layout, theme } from "antd";
+import { Link } from "react-router-dom";
 
 const { Header, Content } = Layout;
 
@@ -10,7 +11,7 @@ const Dashboard = () => {
   return (
     <>
       <Header style={{ padding: 0, background: colorBgContainer }}>
-        asdasd
+        Dashboard
       </Header>
       <Content style={{ margin: "0 16px" }}>
         <div
@@ -21,7 +22,23 @@ const Dashboard = () => {
             borderRadius: borderRadiusLG,
           }}
         >
-          Bill is a cat.
+          <h1>Dashboard</h1>
+          <p>
+            Welcome to the JsonplaceholderUI. This is a simple UI to demonstrate
+            the use of the JSONPlaceholder API. Click on the links in the menu
+            to see the different resources.
+          </p>
+          <ul>
+            <li>
+              <Link to="/posts">Posts</Link>
+            </li>
+            <li>
+              <Link to="/albums">Albums</Link>
+            </li>
+            <li>
+              <Link to="/users">Users</Link>
+            </li>
+          </ul>
         </div>
       </Content>
     </>

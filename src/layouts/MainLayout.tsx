@@ -20,7 +20,8 @@ const MainLayout = () => {
         <div className="demo-logo-vertical" />
         <Menu
           theme="dark"
-          defaultSelectedKeys={getSelectedKey()}
+          defaultSelectedKeys={["dashboard"]}
+          selectedKeys={getSelectedKey()}
           mode="inline"
           items={items}
         />
