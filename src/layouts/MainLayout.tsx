@@ -29,7 +29,8 @@ const MainLayout = () => {
       <Layout>
         <Outlet />
         <Footer style={{ textAlign: "center" }}>
-          Ant Design ©{new Date().getFullYear()} Created by Ant UED
+          JsonplaceholderUI ©2024 Created by Przemysław, Dominik, Konrad &
+          Wiktor
         </Footer>
       </Layout>
     </Layout>
