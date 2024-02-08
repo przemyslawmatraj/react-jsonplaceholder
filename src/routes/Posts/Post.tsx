@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom";
 import useAPI from "../../hooks/useAPI";
-import { Layout, theme } from "antd";
+import { Layout, theme, Collapse } from "antd";
+import { CaretRightOutlined } from "@ant-design/icons";
 
 const { Header, Content } = Layout;
 
@@ -24,6 +25,10 @@ const Post = () => {
     isError: isErrorComments,
   } = useAPI("comments", (data) =>
     data.filter((comment) => comment.postId === parseInt(id || ""))
+  );
+
+  const { data: user } = useAPI("users", (data) =>
+    data.filter((user) => user.id === post?.[0]?.userId)
   );
 
   if (!id) {
@@ -60,6 +65,7 @@ const Post = () => {
             post &&
             post.length > 0 && (
               <>
+                <h3>Post made by {user?.[0].name}</h3>
                 <div style={{ marginBottom: "26px" }}>
                   <p style={{ fontSize: "20px" }}>{post[0].body}</p>
                 </div>
@@ -69,16 +75,27 @@ const Post = () => {
                 ) : isErrorComments ? (
                   <div>Error</div>
                 ) : (
-                  <ul style={{ listStyleType: "none", padding: 0 }}>
-                    {comments?.map((comment) => (
-                      <li
-                        key={comment.id}
-                        style={{ marginBottom: "10px", fontSize: "18px" }}
-                      >
-                        {comment.name}
-                      </li>
-                    ))}
-                  </ul>
+                  <Collapse
+                    bordered={false}
+                    expandIcon={({ isActive }) => (
+                      <CaretRightOutlined rotate={isActive ? 90 : 0} />
+                    )}
+                    className="site-collapse-custom-collapse"
+                    items={comments?.map((comment) => {
+                      return {
+                        key: comment.id,
+                        label: comment.name,
+                        children: (
+                          <>
+                            {comment.body}
+                            <br />
+                            <br />
+                            Email: {comment.email}
+                          </>
+                        ),
+                      };
+                    })}
+                  />
                 )}
               </>
             )

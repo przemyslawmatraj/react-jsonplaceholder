@@ -51,6 +51,34 @@ const User = () => {
       >
         {user && user.length > 0 ? user[0].name : "User Name"}
       </Header>
+      <Content style={{ margin: "16px" }}>
+        <div
+          style={{
+            padding: 24,
+            background: colorBgContainer,
+            borderRadius: borderRadiusLG,
+          }}
+        >
+          User info:
+          {isLoading ? (
+            <div>Loading...</div>
+          ) : isError ? (
+            <div>Error</div>
+          ) : (
+            user &&
+            user?.length > 0 && (
+              <>
+                <div>
+                  <h3>Username: {user[0].username}</h3>
+                  <h3>Email: {user[0].email}</h3>
+                  <h3>Phone: {user[0].phone}</h3>
+                  <h3>Website: {user[0].website}</h3>
+                </div>
+              </>
+            )
+          )}
+        </div>
+      </Content>
       <Content style={{ margin: "0 16px" }}>
         <div
           style={{
