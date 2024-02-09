@@ -31,21 +31,27 @@ const Album = () => {
   return (
     <>
       <Header
+        className="header-style"
         style={{
-          padding: 0,
+          padding: "0",
           background: colorBgContainer,
           textAlign: "center",
-          fontSize: "32px",
-          marginBottom: "20px",
+          fontSize: "1.5vw",
+          marginBottom: "2vh",
+          whiteSpace: "normal",
+          wordWrap: "break-word",
+          overflow: "hidden",
         }}
       >
         {albums && albums.length > 0 ? albums[0].title : "Album Title"}
       </Header>
-      <Content style={{ margin: "0 16px" }}>
+      <Content
+        style={{ margin: "0 2vw", display: "flex", flexDirection: "column" }}
+      >
         <div
           style={{
-            padding: 24,
-            minHeight: 360,
+            padding: "3vh",
+            flex: 1,
             background: colorBgContainer,
             borderRadius: borderRadiusLG,
           }}
