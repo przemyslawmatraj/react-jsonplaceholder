@@ -42,7 +42,7 @@ const Post = () => {
           padding: 0,
           background: colorBgContainer,
           textAlign: "center",
-          fontSize: "32px",
+          fontSize: "1.5vw",
           marginBottom: "20px",
         }}
       >
